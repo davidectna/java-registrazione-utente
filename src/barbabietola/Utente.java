@@ -15,16 +15,26 @@ Gestire tramite try e catch eventuali errori in fase di creazione in modo che il
 bruscamente ma chieda all’utente di inserire dei dati corretti.*/
 
 public class Utente {
-   //attributi
+   //attributes
 	private String nome;
 	private String cognome;
 	private String email;
 	private String password;
 	private int eta;
-	
-	
-	public Utente(String nome, String cognome, String email, String password, int eta) {
+	//constructor
+	public Utente(String nome, String cognome, String email, String password, int eta) throws Exception {
 		super();
+		
+		if (!(email.contains("@") && email.contains("."))) {
+	 throw new Exception("È obbligatorio inserire i simboli '@' e '.'");
+		}
+		 if (password.length()<8 || password.length()> 12) {
+		      throw new Exception("La chiave deve contenere dai 8 ai 12 caratteri");
+		}
+		 if (eta < 18) {
+			throw new Exception ("Devi essere obbligatoriamente maggiorenne");
+		}
+		 
 		this.nome = nome;
 		this.cognome = cognome;
 		this.email = email;
@@ -32,7 +42,7 @@ public class Utente {
 		this.eta = eta;
 	}
 
-
+    // getter and setter methods
 	public String getNome() {
 		return nome;
 	}
@@ -81,7 +91,7 @@ public class Utente {
 	public void setEta(int eta) {
 		this.eta = eta;
 	}
-	
+
 	
 	
 	
