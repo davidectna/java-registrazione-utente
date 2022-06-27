@@ -1,4 +1,4 @@
-package barbabietola;
+package registrazioneUtente;
 
 /*Consegna:
 Creare una classe Utente con attributi nome, cognome, email, password ed età.
